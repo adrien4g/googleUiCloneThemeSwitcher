@@ -1,0 +1,12 @@
+{
+    "search.exclude": {
+        ".vscode": true,
+        "node_modules": true
+    },
+    "files.exclude": {
+        ".vscode": true,
+        "node_modules": true,
+        "yarn.": true
+    },
+    "editor.tabSize": 2
+}
