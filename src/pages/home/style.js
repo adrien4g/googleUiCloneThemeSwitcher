@@ -10,6 +10,9 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    background:${props => props.theme.primaryColor};
+
     header{
         position: absolute;
         top: 0;
@@ -18,7 +21,15 @@ export const Container = styled.div`
 
         display: flex;
         align-items: center;
+        width: 100%;
+        justify-content: space-between;
 
+        #switch{
+            margin-left: 20px;
+        }
+        span{
+            display: flex;
+            align-items: center;
             a{
             font-size: 14px;
             margin: 10px;
@@ -29,10 +40,14 @@ export const Container = styled.div`
                 padding-bottom: 5px;
             }
             a{
-                color: rgba(0, 0, 0, 0.7);
+                color: ${props => props.theme.headerLink};
             }
-            svg > path{
-                color: rgba(0, 0, 0, 0.6)
+            svg {
+                cursor: pointer;
+
+                path{
+                    color: ${props => props.theme.headerMenu};
+                }
             }
             img{
                 width: 40px;
@@ -42,12 +57,16 @@ export const Container = styled.div`
                 justify-content: center;
                 margin-right: 20px;
             }
+        }
     }
     .svg{
         margin: 0px 10px 0px 5px;
         font-size: 18px;
         opacity: 0.5;
         cursor: pointer;
+        path{
+            color: ${props => props.theme.inputIconColor};
+        }
     }
     #logo{
         margin-bottom: 30px;
@@ -55,7 +74,8 @@ export const Container = styled.div`
     #input{
         display: flex;
         align-items: center;
-        border: 1px solid rgba(0, 0, 0, 0.2);
+        justify-content: space-around;
+        border: 1px solid ${props => props.theme.inputDetail};
         border-radius: 30px;
         padding: 8px;
         margin-bottom: 30px;
@@ -63,9 +83,15 @@ export const Container = styled.div`
             width: 460px;
             height: 28px;
             font-size: 14px;
+            background: ${props => props.theme.primaryColor};
+            color: ${props => props.theme.text};
         }
         &:hover {
-            box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2)
+            box-shadow: 0px 0px 7px ${props => props.theme.inputDetail};
+        }
+        .icons{
+          display: flex;
+          align-items: center;
         }
     }
     #buttons{
@@ -74,20 +100,17 @@ export const Container = styled.div`
         button{
             margin: 0px 6px 30px;
             padding: 8px 15px;
-            background: #f8f9fa;
-            color: #3c4043;
+            background: ${props => props.theme.buttonBackground};
+            color: ${props => props.theme.buttonFontColor};
             font-size: 14px;
             cursor: pointer;
-
-            &:hover{
-                outline: #f8f9fa 1px solid;
-            }
         }
     }
     p{
         font-size: 13px;
+        color: ${props => props.theme.text};
         a{
-            color: #609;
+            color: ${props => props.theme.link};
         }
     }
     footer{
@@ -95,8 +118,8 @@ export const Container = styled.div`
         bottom: 0;
         width: 100%;
         div{
-            background: #f2f2f2;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: ${props => props.theme.footerBackground};
+            border: 1px solid ${props => props.theme.footerBorder};
             padding: 10px;
             display: flex;
             justify-content: space-between;
@@ -107,8 +130,37 @@ export const Container = styled.div`
 
             a, p{
                 font-size: 14px;
-                color: rgba(0, 0, 0, 0.54);
+                color: ${props => props.theme.footerFontColor};
             }
         }
     }
+@media(max-width:800px){
+  .hidden{
+      display: none;
+    }
+  #logo{
+    width: 60%;
+  }
+  footer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    div{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  #input{
+    width: 90%;
+  }
+}
+@media(max-width: 324px){
+  #input{
+    width: 90%;
+    svg{
+      display: none;
+    }
+  }
+}
 `
